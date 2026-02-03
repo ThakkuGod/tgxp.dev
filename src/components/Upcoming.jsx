@@ -5,9 +5,27 @@ const Upcoming = () => {
     const roadmap = [
         {
             quarter: "Q1 2026",
+<<<<<<< HEAD
             title: "Advanced Music Bot",
             desc: "Next-generation Discord music bot with Spotify and YouTube integration, advanced queue management, and crystal-clear audio quality.",
             status: "In Development"
+=======
+            title: "Neural Engine Integration",
+            desc: "Deep learning models running directly in-browser for real-time data processing.",
+            status: "In Development"
+        },
+        {
+            quarter: "Q2 2026",
+            title: "HoloCloud Platform",
+            desc: "A decentralized storage solution with a focus on privacy and massive scalability.",
+            status: "Planning"
+        },
+        {
+            quarter: "Q3 2026",
+            title: "Project Phoenix",
+            desc: "Top secret open-source initiative to revolutionize how we build web apps.",
+            status: "Research"
+>>>>>>> 07e53ef32938342e2901b1557879a921315b2313
         }
     ];
 

@@ -7,7 +7,11 @@ const projectsData = [
         description: "A comprehensive ecosystem for building high-performance Discord bots with integrated logging and automated deployment.",
         tech: ["Discord.js", "Node.js", "Express", "MongoDB"],
         fullDescription: "An all-in-one platform for professional bot developers. Features include multi-channel log streaming, dynamic command handling, persistent database integration, and a sleek dashboard for real-time monitoring. Built to handle millions of interactions with zero downtime.",
+<<<<<<< HEAD
         image: "/discord_bot_banner.png",
+=======
+        image: "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?auto=format&fit=crop&q=80&w=600",
+>>>>>>> 07e53ef32938342e2901b1557879a921315b2313
         link: "#"
     },
     {
@@ -19,12 +23,21 @@ const projectsData = [
         link: "https://rpf-converter.onrender.com/"
     },
     {
+<<<<<<< HEAD
         title: "MalluCity Roleplay",
         description: "MalluCity Roleplay is a GTAV based multi-language FiveM Server.",
         tech: ["FiveM", "Lua", "MySQL", "QBCore"],
         fullDescription: "MalluCity Roleplay brings an immersive GTA V roleplay experience to the FiveM platform. Features include multi-language support, custom scripts, realistic economy systems, dynamic jobs, and an active community. Built with optimized performance and unique Indian-themed roleplay scenarios for an authentic experience.",
         image: "/MCRP_GTC.png",
         link: "https://discord.gg/mallu-city-roleplay-940552155520204820"
+=======
+        title: "Deathlin Nexus",
+        description: "The ultimate hub for gaming scripts, bot configurations, and developer tools, featuring a clean and interactive UI.",
+        tech: ["FiveM", "Lua", "Next.js", "Firebase"],
+        fullDescription: "Deathlin Nexus serves as a centralized marketplace and documentation hub for professional gaming assets. It provides automated license management, real-time update notifications, and a community-driven feedback system for high-end scripts and bots.",
+        image: "/dng_logo.png",
+        link: "#"
+>>>>>>> 07e53ef32938342e2901b1557879a921315b2313
     },
     /*
     {
