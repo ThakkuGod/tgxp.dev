@@ -37,7 +37,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (!isLoading) {
+    if (!isLoading && !show404) {
       // Smooth scroll reveal logic
       const observerOptions = {
         threshold: 0.1
@@ -51,11 +51,14 @@ function App() {
         });
       }, observerOptions);
 
-      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      // Small timeout to ensure DOM is ready
+      setTimeout(() => {
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      }, 100);
 
       return () => observer.disconnect();
     }
-  }, [isLoading]);
+  }, [isLoading, show404]);
 
   if (isLoading) {
     return <Loading />;
@@ -63,7 +66,7 @@ function App() {
 
   // Show 404 page if hash is #404
   if (show404) {
-    return <NotFound />;
+    return <NotFound onClose={() => setShow404(false)} />;
   }
 
   return (

@@ -1,20 +1,17 @@
 import React from 'react';
 import './NotFound.css';
 
-const NotFound = () => {
-    const handleBackHome = (e) => {
-        e.preventDefault();
-        // Clear hash and reload to home
-        window.location.href = window.location.pathname;
+const NotFound = ({ onClose }) => {
+    const handleBackHome = () => {
+        // Navigate to home section
+        window.location.hash = '#home';
+        if (onClose) onClose();
     };
 
-    const handleViewProjects = (e) => {
-        e.preventDefault();
-        // Go to home first, then scroll to projects
-        window.location.hash = '';
-        setTimeout(() => {
-            window.location.hash = 'projects';
-        }, 100);
+    const handleViewProjects = () => {
+        // Navigate to projects section
+        window.location.hash = '#projects';
+        if (onClose) onClose();
     };
 
     return (
