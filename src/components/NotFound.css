@@ -1,0 +1,563 @@
+.notfound-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    background: #000;
+}
+
+.notfound-content {
+    text-align: center;
+    z-index: 2;
+    max-width: 600px;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.error-code {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-size: 10rem;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 2rem;
+    font-family: 'Arial Black', sans-serif;
+}
+
+.error-code span {
+    text-shadow: 0 0 30px rgba(0, 242, 254, 0.5);
+}
+
+/* Glitch Effect for Middle Zero */
+.glitch-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.glitch {
+    position: relative;
+    font-size: 10rem;
+    font-weight: 900;
+    color: var(--text-main);
+    animation: glitch-skew 3s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 var(--accent-primary);
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 var(--accent-secondary);
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% {
+        clip: rect(10px, 9999px, 31px, 0);
+        transform: skew(0.3deg);
+    }
+
+    5% {
+        clip: rect(70px, 9999px, 71px, 0);
+        transform: skew(0.5deg);
+    }
+
+    10% {
+        clip: rect(40px, 9999px, 65px, 0);
+        transform: skew(0.2deg);
+    }
+
+    15% {
+        clip: rect(25px, 9999px, 95px, 0);
+        transform: skew(0.4deg);
+    }
+
+    20% {
+        clip: rect(60px, 9999px, 10px, 0);
+        transform: skew(0.1deg);
+    }
+
+    100% {
+        clip: rect(85px, 9999px, 140px, 0);
+        transform: skew(0deg);
+    }
+}
+
+@keyframes glitch-anim2 {
+    0% {
+        clip: rect(65px, 9999px, 100px, 0);
+        transform: skew(0.5deg);
+    }
+
+    5% {
+        clip: rect(30px, 9999px, 25px, 0);
+        transform: skew(0.3deg);
+    }
+
+    10% {
+        clip: rect(90px, 9999px, 85px, 0);
+        transform: skew(0.4deg);
+    }
+
+    15% {
+        clip: rect(15px, 9999px, 45px, 0);
+        transform: skew(0.2deg);
+    }
+
+    20% {
+        clip: rect(75px, 9999px, 115px, 0);
+        transform: skew(0.6deg);
+    }
+
+    100% {
+        clip: rect(50px, 9999px, 20px, 0);
+        transform: skew(0deg);
+    }
+}
+
+@keyframes glitch-skew {
+    0% {
+        transform: skew(0deg);
+    }
+
+    25% {
+        transform: skew(2deg);
+    }
+
+    50% {
+        transform: skew(0deg);
+    }
+
+    75% {
+        transform: skew(-2deg);
+    }
+
+    100% {
+        transform: skew(0deg);
+    }
+}
+
+.error-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(90deg, var(--text-main), var(--text-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.error-description {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+    line-height: 1.6;
+}
+
+.error-actions {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.primary-btn,
+.secondary-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.primary-btn {
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+    color: #000;
+    box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+}
+
+.primary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(0, 242, 254, 0.5);
+}
+
+.secondary-btn {
+    background: transparent;
+    color: var(--text-main);
+    border: 2px solid var(--border-color);
+}
+
+.secondary-btn:hover {
+    border-color: var(--accent-primary);
+    background: rgba(0, 242, 254, 0.1);
+    transform: translateY(-3px);
+}
+
+/* Floating Logos Background */
+.floating-logos {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.floating-logo {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    opacity: 0.15;
+    filter: grayscale(50%) brightness(1.2);
+}
+
+.logo-1 {
+    top: 10%;
+    left: 15%;
+    animation: roamLogo1 20s ease-in-out infinite;
+}
+
+.logo-2 {
+    top: 20%;
+    right: 20%;
+    animation: roamLogo2 18s ease-in-out infinite;
+}
+
+.logo-3 {
+    bottom: 15%;
+    left: 25%;
+    animation: roamLogo3 22s ease-in-out infinite;
+}
+
+.logo-4 {
+    top: 60%;
+    right: 15%;
+    animation: roamLogo4 16s ease-in-out infinite;
+}
+
+.logo-5 {
+    top: 40%;
+    left: 50%;
+    animation: roamLogo5 24s ease-in-out infinite;
+}
+
+/* Logo Roaming Animations */
+@keyframes roamLogo1 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+
+    25% {
+        transform: translate(150px, -80px) rotate(90deg) scale(1.2);
+    }
+
+    50% {
+        transform: translate(250px, 100px) rotate(180deg) scale(0.8);
+    }
+
+    75% {
+        transform: translate(-100px, 120px) rotate(270deg) scale(1.1);
+    }
+}
+
+@keyframes roamLogo2 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+
+    20% {
+        transform: translate(-200px, 100px) rotate(72deg) scale(1.3);
+    }
+
+    40% {
+        transform: translate(-150px, -50px) rotate(144deg) scale(0.9);
+    }
+
+    60% {
+        transform: translate(100px, 150px) rotate(216deg) scale(1.1);
+    }
+
+    80% {
+        transform: translate(50px, -100px) rotate(288deg) scale(1.2);
+    }
+}
+
+@keyframes roamLogo3 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(360deg) scale(1);
+    }
+
+    33% {
+        transform: translate(200px, -150px) rotate(240deg) scale(1.4);
+    }
+
+    66% {
+        transform: translate(-150px, -200px) rotate(120deg) scale(0.7);
+    }
+}
+
+@keyframes roamLogo4 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+
+    30% {
+        transform: translate(-180px, -120px) rotate(-90deg) scale(1.2);
+    }
+
+    60% {
+        transform: translate(120px, 80px) rotate(-180deg) scale(0.8);
+    }
+
+    90% {
+        transform: translate(-80px, 150px) rotate(-270deg) scale(1.3);
+    }
+}
+
+@keyframes roamLogo5 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+
+    16% {
+        transform: translate(-100px, -180px) rotate(60deg) scale(1.1);
+    }
+
+    32% {
+        transform: translate(150px, -120px) rotate(120deg) scale(0.9);
+    }
+
+    48% {
+        transform: translate(200px, 100px) rotate(180deg) scale(1.3);
+    }
+
+    64% {
+        transform: translate(-50px, 180px) rotate(240deg) scale(0.85);
+    }
+
+    80% {
+        transform: translate(-180px, 50px) rotate(300deg) scale(1.15);
+    }
+}
+
+/* Floating Shapes Background */
+.floating-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    opacity: 0.15;
+}
+
+.shape {
+    position: absolute;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    opacity: 0.3;
+    border-radius: 50%;
+}
+
+.shape-1 {
+    width: 300px;
+    height: 300px;
+    top: 10%;
+    left: 10%;
+    animation: float1 8s ease-in-out infinite;
+}
+
+.shape-2 {
+    width: 200px;
+    height: 200px;
+    top: 60%;
+    right: 10%;
+    animation: float2 10s ease-in-out infinite;
+}
+
+.shape-3 {
+    width: 150px;
+    height: 150px;
+    bottom: 20%;
+    left: 50%;
+    animation: float3 12s ease-in-out infinite;
+}
+
+@keyframes float1 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(50px, -50px) rotate(90deg);
+    }
+
+    50% {
+        transform: translate(100px, 0px) rotate(180deg);
+    }
+
+    75% {
+        transform: translate(50px, 50px) rotate(270deg);
+    }
+}
+
+@keyframes float2 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    33% {
+        transform: translate(-80px, 60px) rotate(120deg);
+    }
+
+    66% {
+        transform: translate(40px, -40px) rotate(240deg);
+    }
+}
+
+@keyframes float3 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(-100px, -100px) scale(1.2);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .error-code {
+        font-size: 6rem;
+        gap: 0.5rem;
+    }
+
+    .glitch {
+        font-size: 6rem;
+    }
+
+    .error-title {
+        font-size: 2rem;
+    }
+
+    .error-description {
+        font-size: 1rem;
+    }
+
+    .error-actions {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .shape-1 {
+        width: 200px;
+        height: 200px;
+    }
+
+    .shape-2 {
+        width: 150px;
+        height: 150px;
+    }
+
+    .shape-3 {
+        width: 100px;
+        height: 100px;
+    }
+
+    .floating-logo {
+        width: 50px;
+        height: 50px;
+        opacity: 0.1;
+    }
+}
+
+@media (max-width: 480px) {
+    .error-code {
+        font-size: 4rem;
+    }
+
+    .glitch {
+        font-size: 4rem;
+    }
+
+    .error-title {
+        font-size: 1.5rem;
+    }
+
+    .error-description {
+        font-size: 0.9rem;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .floating-logo {
+        width: 40px;
+        height: 40px;
+        opacity: 0.08;
+    }
+}

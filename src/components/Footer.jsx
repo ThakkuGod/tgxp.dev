@@ -21,9 +21,8 @@ const Footer = () => {
                         </div>
                         <p>Let's build something extraordinary together.</p>
                         <div className="social-links">
-                            <a href="#">GitHub</a>
-                            <a href="#">Twitter</a>
-                            <a href="#">LinkedIn</a>
+                            <a href="https://github.com/ThakkuGod?tab=repositories" target="_blank" rel="noopener noreferrer">GitHub</a>
+
                             <a href="#" onClick={handleDiscordClick}>Discord</a>
                         </div>
                     </div>

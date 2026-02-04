@@ -8,7 +8,7 @@ const projectsData = [
         tech: ["Discord.js", "Node.js", "Express", "MongoDB"],
         fullDescription: "An all-in-one platform for professional bot developers. Features include multi-channel log streaming, dynamic command handling, persistent database integration, and a sleek dashboard for real-time monitoring. Built to handle millions of interactions with zero downtime.",
         image: "/discord_bot_banner.png",
-        link: "#"
+        link: "https://github.com/ThakkuGod?tab=repositories"
     },
     {
         title: "RPF Converter Online",
@@ -59,17 +59,9 @@ const Projects = () => {
             </div>
             <div className="projects-grid">
                 {projectsData.map((project, index) => (
-                    <div key={index} className="project-card reveal">
+                    <div key={index} className="project-card reveal" onClick={() => openModal(project)}>
                         <div className="project-image">
                             <img src={project.image} alt={project.title} />
-                            <div className="project-overlay">
-                                <button
-                                    onClick={() => openModal(project)}
-                                    className="view-link-btn"
-                                >
-                                    View Details
-                                </button>
-                            </div>
                         </div>
                         <div className="project-info">
                             <h3>{project.title}</h3>

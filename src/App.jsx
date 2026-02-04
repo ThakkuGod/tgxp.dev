@@ -6,30 +6,65 @@ import Projects from './components/Projects';
 import Upcoming from './components/Upcoming';
 import Footer from './components/Footer';
 import ParticleBackground from './components/ParticleBackground';
+import Loading from './components/Loading';
+import NotFound from './components/NotFound';
 
 function App() {
   const [scrollReady, setScrollReady] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [show404, setShow404] = useState(false);
 
   useEffect(() => {
-    setScrollReady(true);
-    
-    // Smooth scroll reveal logic
-    const observerOptions = {
-      threshold: 0.1
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+      setScrollReady(true);
+    }, 2000); // 2 seconds loading
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    // Check if URL hash is #404 to show 404 page
+    const checkHash = () => {
+      setShow404(window.location.hash === '#404');
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, observerOptions);
+    checkHash();
+    window.addEventListener('hashchange', checkHash);
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    return () => observer.disconnect();
+    return () => window.removeEventListener('hashchange', checkHash);
   }, []);
+
+  useEffect(() => {
+    if (!isLoading) {
+      // Smooth scroll reveal logic
+      const observerOptions = {
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      return () => observer.disconnect();
+    }
+  }, [isLoading]);
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  // Show 404 page if hash is #404
+  if (show404) {
+    return <NotFound />;
+  }
 
   return (
     <div className={`app-wrapper ${scrollReady ? 'ready' : ''}`}>
@@ -46,3 +81,4 @@ function App() {
 }
 
 export default App;
+
